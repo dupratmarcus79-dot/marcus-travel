@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Voyage by Marcus</title>
+<meta name="description" content="Voyage by Marcus : voyage, bons plans et appel découverte sur rendez-vous.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#fff;--card:#f5f5f7;--line:#e5e5ea;--fg:#1d1d1f;--mut:#6e6e73;--or:#0b7d97;--or2:#086a80;--d:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif;--b:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--fg);font:17px/1.5 var(--b);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.w{max-width:1080px;margin:0 auto;padding:0 22px}
+h1,h2{font-family:var(--d);font-weight:700;line-height:1.04;letter-spacing:-.03em}
+h2{font-size:clamp(34px,6vw,60px);margin-bottom:16px}
+.k{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--or);margin-bottom:12px}
+.p{color:var(--mut);max-width:560px;font-size:19px;line-height:1.45}
+section{padding:96px 0;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;border:0;background:var(--or);color:#fff;font:600 16px var(--b);text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{background:var(--or2);transform:scale(1.02)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,.chip input:focus-visible+span{outline:3px solid rgba(11,125,151,.45);outline-offset:3px}
+
+nav{position:fixed;inset:0 0 auto 0;z-index:10;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);background:rgba(255,255,255,.72);border-bottom:1px solid rgba(0,0,0,.08)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font:600 19px var(--d);letter-spacing:-.02em;text-decoration:none}
+.logo b{color:var(--or);font-weight:600}
+nav .btn{min-height:36px;padding:0 18px;font-size:14px}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:0;border:0;overflow:hidden;color:#fff}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%;animation:zoom 18s ease-out both}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0,rgba(0,0,0,0) 32%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.78) 100%)}
+.hero .w{position:relative;z-index:1;width:100%;padding-bottom:56px}
+.hero .k{color:#fff;opacity:.9}
+h1{font-size:clamp(46px,10vw,112px);margin-bottom:20px}
+h1 span{color:#8fe3f2}
+.hero .p{color:rgba(255,255,255,.9);margin-bottom:28px}
+.hero .btn{background:#fff;color:#1d1d1f}
+.hero .btn:hover{background:#f0f0f0}
+.quick{display:flex;gap:10px;max-width:520px;flex-wrap:wrap}
+.quick input[type=email]{flex:1 1 220px;background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.45);color:#fff;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.quick input[type=email]::placeholder{color:rgba(255,255,255,.75)}
+.note{font-size:13px;color:var(--mut);margin-top:14px}
+.hero .note{color:rgba(255,255,255,.8)}
+@keyframes zoom{from{transform:scale(1.1)}to{transform:scale(1)}}
+
+input[type=text],input[type=email],input[type=tel]{width:100%;min-height:52px;padding:0 18px;border-radius:14px;border:1px solid #d2d2d7;background:#fff;color:var(--fg);font:400 17px var(--b)}
+input::placeholder{color:#86868b}
+
+.duo{display:grid;gap:44px;align-items:center}
+.video{aspect-ratio:9/16;max-height:640px;margin:0 auto;width:min(100%,360px);border-radius:28px;background:#d9d9de url(img/hero.jpg) 68% 50%/cover;box-shadow:0 20px 50px rgba(0,0,0,.18)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.facts li{list-style:none;padding:9px 16px;background:var(--card);border-radius:999px;font-size:15px;font-weight:500}
+ul{padding:0}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px}
+.tile:last-child{grid-column:1/-1;aspect-ratio:16/9}
+.tile{aspect-ratio:4/5;border-radius:24px;border:1.5px dashed #c7c7cc;display:grid;place-content:center;text-align:center;color:#86868b;font-size:14px;font-weight:500;background:var(--card);padding:14px}
+.tile b{display:block;font:700 22px/1.15 var(--d);letter-spacing:-.02em;color:var(--fg);margin-bottom:4px}
+
+.steps{display:grid;gap:14px;margin-top:36px;counter-reset:s}
+.steps li{list-style:none;counter-increment:s;background:var(--card);border-radius:24px;padding:28px}
+.steps li::before{content:counter(s);font:700 15px var(--d);color:#fff;background:var(--or);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;margin-bottom:16px}
+.steps h3{font-size:20px;letter-spacing:-.02em;margin-bottom:6px}
+.steps p{color:var(--mut);font-size:16px}
+
+.hor{display:grid;gap:12px;margin-top:32px}
+.hor div{display:flex;justify-content:space-between;gap:16px;padding:20px 24px;border-radius:20px;background:var(--card);font-weight:600}
+.hor span{color:var(--or);white-space:nowrap}
+
+form{display:grid;gap:18px;background:var(--card);border-radius:28px;padding:26px;margin-top:36px;max-width:640px}
+label.f{display:grid;gap:8px;font-size:15px;font-weight:600}
+label.f small{font-weight:400;color:var(--mut)}
+fieldset{border:0;padding:0;display:grid;gap:10px}
+legend{font-size:15px;font-weight:600;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0}
+.chip span{display:block;padding:11px 16px;border:1px solid #d2d2d7;background:#fff;border-radius:999px;font-size:15px;font-weight:500;cursor:pointer}
+.chip input:checked+span{background:var(--or);border-color:var(--or);color:#fff}
+.ok{display:grid;grid-template-columns:24px 1fr;gap:12px;font-size:14px;color:#424245;cursor:pointer}
+.ok input{width:22px;height:22px;accent-color:var(--or);margin-top:1px}
+form .btn{width:100%}
+.err{color:#d70015;font-size:14px;font-weight:600}
+.merci{text-align:center;padding:44px 26px}
+.merci h3{font:700 38px/1.05 var(--d);letter-spacing:-.03em;margin-bottom:12px}
+.merci p{color:var(--mut)}
+
+.links{display:grid;gap:12px;margin-top:36px}
+.links a{display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:center;padding:24px;border-radius:24px;background:var(--card);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.links a:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.links b{font:700 21px/1.15 var(--d);letter-spacing:-.02em}
+.links small{grid-column:1;color:var(--mut);font-size:15px}
+.links i{grid-row:1/3;grid-column:2;font-style:normal;color:var(--or);font-size:24px}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:22px 0;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--or);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--mut);padding:0 0 22px;max-width:680px}
+details p+p{margin-top:-10px}
+
+footer{background:var(--card);padding:44px 0 110px;color:var(--mut);font-size:13px}
+footer p{max-width:760px;margin-bottom:14px}
+footer details{font-size:13px}
+footer summary{font-size:15px;padding:14px 0}
+.demo{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;background:rgba(29,29,31,.92);color:#fff;border-radius:16px;padding:12px 16px;font-size:13px;font-weight:500;text-align:center;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+[hidden]{display:none!important}
+@media(min-width:760px){
+  section{padding:128px 0}
+  .duo{grid-template-columns:360px 1fr;gap:72px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .tile:last-child{grid-column:auto;aspect-ratio:4/5}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .hor{grid-template-columns:repeat(3,1fr)}
+  .links{grid-template-columns:repeat(2,1fr)}
+  .hor div{flex-direction:column}
+  form{padding:36px}
+}
+@media(prefers-reduced-motion:reduce){.hero img{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <a class="logo" href="#top">Voyage <b>by Marcus</b></a>
+  <a class="btn" href="#inscription">Rejoindre la liste</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <img src="img/hero.jpg" alt="Marcus assis face au coucher de soleil sur l'océan">
+  <div class="w">
+    <p class="k">Voyage · Appels sur rendez-vous</p>
+    <h1>Ton prochain voyage <span>commence ici.</span></h1>
+    <p class="p">Je m'appelle Marcus, j'ai 21 ans. Je voyage, je teste, et je montre comment je fais. Laisse ton email : je te rappelle sur un créneau qui t'arrange.</p>
+    <form class="quick" id="quick" style="all:unset;display:flex;gap:10px;flex-wrap:wrap;max-width:520px">
+      <input type="email" id="qmail" placeholder="Ton email" autocomplete="email" aria-label="Ton email" required>
+      <button class="btn">Je m'inscris →</button>
+    </form>
+    <p class="note">Gratuit, sans engagement. Tu peux te désinscrire quand tu veux. Contenu à but commercial : Marcus travaille avec une société de voyage.</p>
+  </div>
+</header>
+
+<section id="moi"><div class="w duo">
+  <div class="video" id="video" role="img" aria-label="Marcus face au coucher de soleil"></div>
+  <!-- Vidéo de présentation : à ajouter plus tard à la place de cette photo -->
+  <div>
+    <p class="k">Qui je suis</p>
+    <h2>J'entreprends dans le voyage.</h2>
+    <p class="p">J'entreprends dans une société de voyage qui fonctionne en marketing de réseau. Je ne force personne : j'ai testé la plateforme, j'ai kiffé, et je montre le résultat. Si ça te parle, on s'appelle. Sinon, profite des images.</p>
+    <ul class="facts"><li>21 ans</li><li>Entrepreneur dans le voyage</li><li>Fan de montage vidéo</li></ul>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <p class="k">Mon lifestyle</p>
+  <h2>Ce que je vis, pas ce que je raconte.</h2>
+  <p class="p">Cascades, rivières, hôtels, océan. Tout ce que tu vois ici, je l'ai vécu.</p>
+  <div class="grid">
+    <div class="tile"><span><b>Cascades &amp; rivières</b>Photo à venir</span></div>
+    <div class="tile"><span><b>Hôtels, palmiers, luxe</b>Photo à venir</span></div>
+    <div class="tile"><span><b>Boucan Canot</b>Photo à venir</span></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <p class="k">Comment ça marche</p>
+  <h2>Trois étapes. Zéro pression.</h2>
+  <ol class="steps">
+    <li><h3>Tu t'inscris</h3><p>Ton prénom, ton email et le moment de la journée qui t'arrange. Ça prend 30 secondes.</p></li>
+    <li><h3>Je te propose un créneau</h3><p>Tu reçois un email avec un horaire d'appel. Les places partent dans l'ordre d'inscription.</p></li>
+    <li><h3>On s'appelle 30 minutes</h3><p>Je t'explique ce que je fais et comment je voyage. Tu poses tes questions, et tu décides tranquillement.</p></li>
+  </ol>
+</div></section>
+
+<section id="horaires"><div class="w">
+  <p class="k">Horaires des appels</p>
+  <h2>Je prends peu d'appels, mais je les prends bien.</h2>
+  <p class="p">Mes créneaux sont limités. C'est pour ça qu'il y a une liste d'attente.</p>
+  <div class="hor">
+    <div>Lundi au vendredi <span>18 h – 21 h</span></div>
+    <div>Samedi <span>10 h – 13 h</span></div>
+    <div>Dimanche <span>Repos</span></div>
+  </div>
+  <p class="note">Horaires indicatifs, heure de La Réunion. Ton créneau exact est confirmé par email.</p>
+</div></section>
+
+<section id="inscription"><div class="w">
+  <p class="k">Inscription</p>
+  <h2>Prends ta place.</h2>
+  <p class="p">Remplis ça et tu es sur la liste. Je réponds moi-même à chaque personne.</p>
+
+  <form id="f" novalidate>
+    <input type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;opacity:0">
+    <label class="f">Prénom<input type="text" name="prenom" autocomplete="given-name" required></label>
+    <label class="f">Email<input type="email" name="email" id="email" autocomplete="email" required></label>
+    <label class="f">WhatsApp <small>Facultatif, pour l'appel</small><input type="tel" name="whatsapp" autocomplete="tel" placeholder="+262 …"></label>
+    <fieldset><legend>Ce qui t'intéresse</legend><div class="chips">
+      <label class="chip"><input type="radio" name="interet" value="Voyager plus" checked><span>Voyager plus</span></label>
+      <label class="chip"><input type="radio" name="interet" value="Bons plans"><span>Les bons plans</span></label>
+      <label class="chip"><input type="radio" name="interet" value="Activité"><span>L'activité dans le voyage</span></label>
+      <label class="chip"><input type="radio" name="interet" value="Curieux"><span>Juste curieux</span></label>
+    </div></fieldset>
+    <fieldset><legend>Le moment qui t'arrange pour l'appel</legend><div class="chips">
+      <label class="chip"><input type="radio" name="creneau" value="Soir en semaine" checked><span>Soir en semaine</span></label>
+      <label class="chip"><input type="radio" name="creneau" value="Samedi matin"><span>Samedi matin</span></label>
+      <label class="chip"><input type="radio" name="creneau" value="Peu importe"><span>Peu importe</span></label>
+    </div></fieldset>
+    <label class="ok"><input type="checkbox" name="majeur" required><span>J'ai 18 ans ou plus.</span></label>
+    <label class="ok"><input type="checkbox" name="accord" required><span>J'accepte que Marcus enregistre mes données et me recontacte par email, message ou appel. Je comprends qu'il me parlera d'une société de voyage qui fonctionne en marketing de réseau, que l'appel est gratuit et que je ne suis obligé(e) à rien. Je peux retirer mon accord à tout moment. J'ai lu la <a href="#confidentialite">politique de confidentialité</a>.</span></label>
+    <p class="err" id="err" role="alert" hidden></p>
+    <button class="btn">Je rejoins la liste d'attente</button>
+  </form>
+  <div class="merci" id="merci" hidden>
+    <h3>C'est bon, <span id="nom"></span>.</h3>
+    <p>Tu es sur la liste. Je t'envoie un email avec ton créneau d'appel dès qu'une place se libère.</p>
+  </div>
+</div></section>
+
+<section id="liens"><div class="w">
+  <p class="k">Mes autres liens</p>
+  <h2>Tout ce que j'utilise pour voyager.</h2>
+  <p class="p">Pas envie d'attendre un appel ? Voici mes liens directs. Ce sont des liens de parrainage : si tu passes par eux, je peux recevoir un avantage.</p>
+  <div class="links">
+    <a href="https://vip.traveladvantage.com/marcusduprat" target="_blank" rel="noopener sponsored"><b>Voyager moins cher</b><small>Travel Advantage, la plateforme de réservation que j'utilise.</small><i aria-hidden="true">↗</i></a>
+    <a href="https://www.mwrlife.com/marcusduprat/join" target="_blank" rel="noopener sponsored"><b>Rejoindre mon équipe</b><small>Rejoindre l'équipe MWR Life. Aucun revenu garanti.</small><i aria-hidden="true">↗</i></a>
+    <a href="https://youtu.be/45ezF0dfWrk" target="_blank" rel="noopener"><b>La vidéo explicative</b><small>Le fonctionnement expliqué en vidéo, sur YouTube.</small><i aria-hidden="true">↗</i></a>
+    <a href="https://americanexpress.com/fr-fr/referral/gold?ref=mARCUDB25E&amp;XL=MIANS" target="_blank" rel="noopener sponsored"><b>La carte Amex Gold</b><small>La carte avec laquelle je cumule des points pour voyager. Soumise à acceptation par American Express.</small><i aria-hidden="true">↗</i></a>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <p class="k">Questions fréquentes</p>
+  <h2>On me demande souvent.</h2>
+  <details><summary>Ça m'engage à quoi ?</summary><p>À rien. L'inscription est gratuite, l'appel aussi, et c'est toi qui choisis de donner suite ou non. Si un jour tu décides de rejoindre la société, ses conditions et ses tarifs te sont donnés avant tout paiement.</p></details>
+  <details><summary>C'est quoi exactement, ce que tu fais ?</summary><p>J'entreprends dans le voyage, dans une société de voyage qui fonctionne en marketing de réseau. Elle donne accès à la possibilité de voyager plus et moins cher.</p></details>
+  <details><summary>Je suis obligé de faire ce business ?</summary><p>Non. Beaucoup de gens utilisent juste la plateforme pour voyager. Mais si tu aimes voyager et que l'idée d'entreprendre te parle, ça peut t'intéresser.</p></details>
+  <details><summary>Est-ce qu'on gagne de l'argent ?</summary><p>Je ne te promets rien. Les résultats dépendent de chacun et varient d'une personne à l'autre.</p></details>
+  <details><summary>Tu fais quoi de mon email ?</summary><p>Il sert uniquement à te recontacter pour cet appel. Je ne le vends pas et tu peux le faire supprimer à tout moment.</p></details>
+</div></section>
+
+<footer><div class="w">
+  <p>Marcus est partenaire indépendant d'une société de voyage qui fonctionne en marketing de réseau, et ce contenu a un but commercial. Ce site est le sien, pas celui de la société. Certains liens sont des liens de parrainage (MWR Life, Travel Advantage, American Express) : Marcus peut recevoir un avantage si tu les utilises. Aucun revenu n'est garanti et les résultats varient d'une personne à l'autre. Les prix et avantages dépendent des offres en cours.</p>
+  <details id="confidentialite"><summary>Politique de confidentialité</summary>
+    <p><b>Qui est responsable ?</b> Marcus Duprat, éditeur de ce site.</p>
+    <p><b>Quelles données ?</b> Ton prénom, ton email, ton numéro WhatsApp si tu le donnes, ton centre d'intérêt, le moment d'appel qui t'arrange, et la date de ton inscription.</p>
+    <p><b>Pourquoi ?</b> Uniquement pour te recontacter et te proposer un appel de présentation. Base légale : ton accord, donné en cochant la case. Aucune décision automatique n'est prise sur toi.</p>
+    <p><b>Qui y accède ?</b> Marcus. Les données sont stockées chez Google (tableur et messagerie Gmail), qui peut les traiter aux États-Unis avec les garanties prévues par la loi. Elles ne sont ni vendues ni cédées. Tu reçois des emails envoyés depuis la messagerie de Marcus, rédigés à partir d'un modèle.</p>
+    <p><b>Combien de temps ?</b> 12 mois au maximum après notre dernier échange, puis suppression.</p>
+    <p><b>Tes droits.</b> Tu peux à tout moment retirer ton accord, accéder à tes données, les corriger, les faire supprimer, t'opposer à leur usage, ou les récupérer. Écris à Marcus par message privé sur Instagram, ou réponds simplement « STOP » à un de ses emails. Tu peux aussi déposer une réclamation auprès de la CNIL (cnil.fr).</p>
+    <p><b>Cookies.</b> Ce site ne dépose aucun cookie de suivi ni de publicité. Les polices d'écriture sont chargées depuis Google Fonts.</p>
+  </details>
+  <details><summary>Mentions légales</summary>
+    <p>Éditeur et directeur de la publication : Marcus Duprat. Contact : par message privé sur Instagram. Hébergeur : GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+    <p>Marcus est partenaire indépendant d'une société de voyage qui fonctionne en marketing de réseau. Il n'est pas salarié de cette société et ce site n'est pas le sien. Certains liens sont des liens de parrainage. Aucun revenu n'est garanti.</p>
+  </details>
+  <p style="margin-top:22px">© 2026 Voyage by Marcus</p>
+</div></footer>
+
+<div class="demo" id="demo" hidden>Aperçu : le formulaire n'envoie encore rien.</div>
+
+<script>
+// Adresse qui reçoit les inscriptions. Vide = aperçu, rien n'est envoyé.
+const ENVOI = "https://script.google.com/macros/s/AKfycbydvsteyPyaRYZX7-BNxj_CG5s2Utkc-rRwIQHCs3Gf2JW8LJFxUKbMdtns7AOb3aZp8A/exec";
+const f = document.getElementById("f"), err = document.getElementById("err");
+document.getElementById("demo").hidden = !!ENVOI;
+
+document.getElementById("quick").addEventListener("submit", e => {
+  e.preventDefault();
+  document.getElementById("email").value = document.getElementById("qmail").value;
+  document.getElementById("inscription").scrollIntoView();
+  f.elements.prenom.focus({preventScroll: true});
+});
+
+f.addEventListener("submit", async e => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(f));
+  const msg = !d.prenom.trim() ? "Écris ton prénom."
+    : !f.elements.email.validity.valid ? "Vérifie ton email."
+    : !d.majeur ? "Il faut avoir 18 ans ou plus."
+    : !d.accord ? "Coche la case d'accord pour que je puisse te recontacter." : "";
+  err.hidden = !msg; err.textContent = msg;
+  if (msg) return;
+  const b = f.querySelector("button"); b.disabled = true; b.textContent = "Envoi…";
+  try {
+    if (ENVOI) {
+      // Google Apps Script : envoi simple en texte, sans lecture de la réponse
+      await fetch(ENVOI, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(d)});
+    }
+    document.getElementById("nom").textContent = d.prenom.trim();
+    f.hidden = true; document.getElementById("merci").hidden = false;
+  } catch {
+    err.hidden = false; err.textContent = "L'envoi n'a pas marché. Réessaie dans un instant.";
+    b.disabled = false; b.textContent = "Je rejoins la liste d'attente";
+  }
+});
+</script>
+</body>
+</html>
