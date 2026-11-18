@@ -59,9 +59,12 @@ input::placeholder{color:#86868b}
 ul{padding:0}
 
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px}
+.tile{position:relative;margin:0;overflow:hidden;aspect-ratio:4/5;border-radius:24px;background:var(--card)}
 .tile:last-child{grid-column:1/-1;aspect-ratio:16/9}
-.tile{aspect-ratio:4/5;border-radius:24px;border:1.5px dashed #c7c7cc;display:grid;place-content:center;text-align:center;color:#86868b;font-size:14px;font-weight:500;background:var(--card);padding:14px}
-.tile b{display:block;font:700 22px/1.15 var(--d);letter-spacing:-.02em;color:var(--fg);margin-bottom:4px}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.tile:hover img{transform:scale(1.04)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6));pointer-events:none}
+.tile figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;color:#fff;font:700 20px/1.15 var(--d);letter-spacing:-.02em}
 
 .steps{display:grid;gap:14px;margin-top:36px;counter-reset:s}
 .steps li{list-style:none;counter-increment:s;background:var(--card);border-radius:24px;padding:28px}
@@ -158,11 +161,11 @@ footer summary{font-size:15px;padding:14px 0}
 <section><div class="w">
   <p class="k">Mon lifestyle</p>
   <h2>Ce que je vis, pas ce que je raconte.</h2>
-  <p class="p">Cascades, rivières, hôtels, océan. Tout ce que tu vois ici, je l'ai vécu.</p>
+  <p class="p">Cascades, rivières, hôtels, plages. Voilà l'univers dans lequel je voyage. Ces photos sont des images d'illustration : je les remplace peu à peu par les miennes.</p>
   <div class="grid">
-    <div class="tile"><span><b>Cascades &amp; rivières</b>Photo à venir</span></div>
-    <div class="tile"><span><b>Hôtels, palmiers, luxe</b>Photo à venir</span></div>
-    <div class="tile"><span><b>Boucan Canot</b>Photo à venir</span></div>
+    <figure class="tile"><img src="cascade.jpg" alt="Bassin et petite cascade dans la roche volcanique, La Réunion" loading="lazy"><figcaption>Cascades &amp; rivières</figcaption></figure>
+    <figure class="tile"><img src="hotel.jpg" alt="Piscine à débordement d'un hôtel de luxe entourée de palmiers au coucher du soleil" loading="lazy"><figcaption>Hôtels, palmiers, luxe</figcaption></figure>
+    <figure class="tile"><img src="plage.jpg" alt="Plage de sable et lagon turquoise à La Réunion" loading="lazy"><figcaption>Plages de La Réunion</figcaption></figure>
   </div>
 </div></section>
 
@@ -252,6 +255,9 @@ footer summary{font-size:15px;padding:14px 0}
     <p><b>Combien de temps ?</b> 12 mois au maximum après notre dernier échange, puis suppression.</p>
     <p><b>Tes droits.</b> Tu peux à tout moment retirer ton accord, accéder à tes données, les corriger, les faire supprimer, t'opposer à leur usage, ou les récupérer. Écris à Marcus par message privé sur Instagram, ou réponds simplement « STOP » à un de ses emails. Tu peux aussi déposer une réclamation auprès de la CNIL (cnil.fr).</p>
     <p><b>Cookies.</b> Ce site ne dépose aucun cookie de suivi ni de publicité. Les polices d'écriture sont chargées depuis Google Fonts.</p>
+  </details>
+  <details><summary>Crédits photos</summary>
+    <p>Photo d'ouverture : Marcus. Photos d'illustration, recadrées, via Wikimedia Commons : « Bassin la Paix » par Clémenceau Lauret (<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Bassin_la_Paix.jpg" target="_blank" rel="noopener">source</a>) ; « L'Ermitage beach, Réunion » par Samuel Hoarau (<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:L%27Ermitage_beach,_R%C3%A9union.jpg" target="_blank" rel="noopener">source</a>) ; « Negombo Beach resort pool » par Recal Media (domaine public CC0, <a href="https://commons.wikimedia.org/wiki/File:Negombo_Beach_resort_pool_(Unsplash).jpg" target="_blank" rel="noopener">source</a>).</p>
   </details>
   <details><summary>Mentions légales</summary>
     <p>Éditeur et directeur de la publication : Marcus Duprat. Contact : par message privé sur Instagram. Hébergeur : GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
