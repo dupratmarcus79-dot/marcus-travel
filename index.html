@@ -7,13 +7,6 @@
 <meta name="description" content="Voyage by Marcus : voyage, bons plans et appel découverte sur rendez-vous.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Marcus Travel">
-<meta property="og:description" content="Voyage, bons plans et appel découverte sur rendez-vous.">
-<meta property="og:url" content="https://marcus-travel.netlify.app/">
-<meta property="og:image" content="https://marcus-travel.netlify.app/img/hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b7d97'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='19' font-weight='700' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -81,7 +74,7 @@ ul{padding:0}
 
 .hor{display:grid;gap:12px;margin-top:32px}
 .hor div{display:flex;justify-content:space-between;gap:16px;padding:20px 24px;border-radius:20px;background:var(--card);font-weight:600}
-.hor span{color:var(--or2);white-space:nowrap}
+.hor span{color:var(--or);white-space:nowrap}
 
 form{display:grid;gap:18px;background:var(--card);border-radius:28px;padding:26px;margin-top:36px;max-width:640px}
 label.f{display:grid;gap:8px;font-size:15px;font-weight:600}
@@ -120,7 +113,7 @@ footer summary{font-size:15px;padding:14px 0}
 .demo{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;background:rgba(29,29,31,.92);color:#fff;border-radius:16px;padding:12px 16px;font-size:13px;font-weight:500;text-align:center;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .tabs{display:flex;gap:4px;background:#ececf0;border-radius:999px;padding:4px}
 .tabs button{border:0;background:transparent;font:600 14px var(--b);padding:8px 16px;border-radius:999px;color:var(--mut);cursor:pointer}
-.tabs button[aria-pressed=true]{background:#fff;color:var(--fg);box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.tabs button[aria-selected=true]{background:#fff;color:var(--fg);box-shadow:0 1px 4px rgba(0,0,0,.15)}
 nav .logo{display:none}
 .ihero{min-height:88svh;display:flex;align-items:flex-end;color:#fff;padding:120px 0 56px;background:radial-gradient(120% 90% at 80% 0%,#1d6fa5 0,#0b3a5c 45%,#071a2c 100%)}
 .ihero h1 span{color:#7fe0c3}
@@ -133,11 +126,6 @@ nav .logo{display:none}
 .risk{margin-top:36px;padding:22px 24px;border-radius:20px;background:#fff4e5;border:1px solid #ffd9a3;color:#5c3b00;font-size:15px;max-width:720px}
 .risk b{display:block;margin-bottom:6px}
 @media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}nav .logo{display:block}}
-.tabs button{min-height:44px}
-nav .btn{min-height:44px}
-.tabs button small{white-space:nowrap}
-@media(max-width:420px){nav .w{padding:0 10px;gap:8px}.tabs button,.tabs button.wip{padding:4px 9px}nav .btn{padding:0 14px}}
-input[aria-invalid]{outline:3px solid #d70015;outline-offset:2px}
 [hidden]{display:none!important}
 @media(min-width:760px){
   section{padding:128px 0}
@@ -154,7 +142,7 @@ input[aria-invalid]{outline:3px solid #d70015;outline-offset:2px}
 
 /* ===== Version 3D ===== */
 body{perspective:1400px}
-.tile,.steps li,.cards div,.links a,.hor div,form,.facts li,.risk{transform-style:preserve-3d}
+.tile,.steps li,.cards div,.links a,.hor div,form,.facts li,.risk{transform-style:preserve-3d;will-change:transform}
 .t3{transition:transform .25s ease-out,box-shadow .25s}
 .rv{opacity:0;transform:perspective(900px) rotateX(16deg) translateY(36px) scale(.96);transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s}
 .rv.in{opacity:1;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(var(--tz,0px))}
@@ -168,8 +156,8 @@ body{perspective:1400px}
 .hero .btn:active{box-shadow:0 1px 0 #c9d4d8,0 4px 10px -4px rgba(0,0,0,.4)}
 .hero img{will-change:transform}
 .hero .w{transform:translateY(var(--py,0px))}
-.tabs button.wip{cursor:not-allowed;line-height:1.1;padding:4px 12px}
-.tabs button small{display:block;font:600 10.5px var(--b);letter-spacing:.02em;color:#8a4800;text-transform:uppercase;margin-top:1px}
+.tabs button.wip{opacity:.7;cursor:not-allowed;line-height:1.1;padding:6px 14px}
+.tabs button small{display:block;font:600 9px var(--b);letter-spacing:.03em;color:#b25e00;text-transform:uppercase;margin-top:1px}
 .toast{position:fixed;left:12px;right:12px;top:68px;z-index:30;background:#1d1d1f;color:#fff;border-radius:16px;padding:14px 18px;font-size:14px;font-weight:500;text-align:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .25s,transform .25s}
 .toast.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.btn{transition:none}}
@@ -179,9 +167,9 @@ body{perspective:1400px}
 
 <nav><div class="w">
   <a class="logo" href="#top">Voyage <b>by Marcus</b></a>
-  <div class="tabs" role="group" aria-label="Choisir la partie">
-    <button type="button" id="t-voyage" aria-pressed="true" data-p="voyage">Voyage</button>
-    <button type="button" id="t-invest" class="wip" aria-pressed="false" aria-disabled="true" data-p="invest">Investissement<small>En développement</small></button>
+  <div class="tabs" role="tablist" aria-label="Choisir la partie">
+    <button role="tab" id="t-voyage" aria-selected="true" data-p="voyage">Voyage</button>
+    <button role="tab" id="t-invest" class="wip" aria-selected="false" aria-disabled="true" data-p="invest">Investissement<small>En développement</small></button>
   </div>
   <a class="btn" href="#inscription">Rejoindre</a>
 </div></nav>
@@ -302,10 +290,39 @@ body{perspective:1400px}
 
 </main>
 
-<div id="p-invest" hidden></div>
+<main id="p-invest" hidden>
+<header class="ihero"><div class="w">
+  <p class="k" style="color:#7fe0c3">Investissement · Partage d'expérience</p>
+  <h1>Comprendre avant de <span>copier.</span></h1>
+  <p class="p">Je m'intéresse à l'investissement et je partage ce que j'apprends, sans promesse. Ici, tu découvres comment fonctionne le « copy » : tu peux suivre la stratégie d'un autre investisseur. Tu gardes toujours la main, et tu peux perdre de l'argent.</p>
+  <a class="btn" href="#inscription" data-interet="Investissement">Je veux en parler →</a>
+</div></header>
+
+<section><div class="w">
+  <p class="k">Le principe</p>
+  <h2>Le copy, c'est quoi ?</h2>
+  <p class="p">Sur certaines plateformes, tu peux choisir un investisseur et reproduire automatiquement ses opérations avec ton propre argent. Tu ne deviens pas expert pour autant : tu délègues la décision, pas le risque.</p>
+  <div class="cards">
+    <div><h3>1. Tu apprends</h3><p>Je t'explique les bases : ce qu'est un risque, une perte, une commission, pourquoi diversifier.</p></div>
+    <div><h3>2. Tu compares</h3><p>Tu regardes les résultats passés, les frais et le niveau de risque de chaque profil. Les performances passées ne garantissent pas l'avenir.</p></div>
+    <div><h3>3. Tu décides seul</h3><p>Tu choisis un montant que tu peux te permettre de perdre. Personne ne décide à ta place, et moi non plus.</p></div>
+  </div>
+  <div class="risk" role="note"><b>Avertissement important</b>Investir comporte un risque de perte en capital, pouvant aller jusqu'à la totalité de la somme investie. Le copy trading est un produit complexe. Rien ici n'est un conseil en investissement, une recommandation personnalisée ou une promesse de gain. Marcus n'est pas conseiller financier. Ne mets jamais d'argent dont tu as besoin pour vivre.</div>
+</div></section>
+
+<section><div class="w">
+  <p class="k">Ma démarche</p>
+  <h2>Transparent, ou rien.</h2>
+  <p class="p">Je partage mon expérience telle qu'elle est, pertes comprises. Si je montre une plateforme, je te dis clairement quand j'ai un lien de parrainage.</p>
+  <div class="links">
+    <a href="#inscription" data-interet="Investissement"><b>Recevoir mes explications</b><small>Un échange gratuit pour comprendre les bases, sans conseil personnalisé.</small><i aria-hidden="true">→</i></a>
+    <a href="#liens" data-p="voyage"><b>Mon côté voyage</b><small>L'autre partie de mon univers : voyage et bons plans.</small><i aria-hidden="true">↗</i></a>
+  </div>
+</div></section>
+</main>
 
 <footer><div class="w">
-  
+  <p>Information à but pédagogique, ne constituant pas un conseil en investissement. Les investissements sont risqués et vous pouvez perdre tout ou partie de votre capital. Les performances passées ne préjugent pas des performances futures.</p>
   <p>Marcus est partenaire indépendant d'une société de voyage qui fonctionne en marketing de réseau, et ce contenu a un but commercial. Ce site est le sien, pas celui de la société. Certains liens sont des liens de parrainage (MWR Life, Travel Advantage, American Express) : Marcus peut recevoir un avantage si tu les utilises. Aucun revenu n'est garanti et les résultats varient d'une personne à l'autre. Les prix et avantages dépendent des offres en cours.</p>
   <details id="confidentialite"><summary>Politique de confidentialité</summary>
     <p><b>Qui est responsable ?</b> Marcus Duprat, éditeur de ce site.</p>
@@ -313,14 +330,14 @@ body{perspective:1400px}
     <p><b>Pourquoi ?</b> Uniquement pour te recontacter et te proposer un appel de présentation. Base légale : ton accord, donné en cochant la case. Aucune décision automatique n'est prise sur toi.</p>
     <p><b>Qui y accède ?</b> Marcus. Les données sont stockées chez Google (tableur et messagerie Gmail), qui peut les traiter aux États-Unis avec les garanties prévues par la loi. Elles ne sont ni vendues ni cédées. Tu reçois des emails envoyés depuis la messagerie de Marcus, rédigés à partir d'un modèle.</p>
     <p><b>Combien de temps ?</b> 12 mois au maximum après notre dernier échange, puis suppression.</p>
-    <p><b>Tes droits.</b> Tu peux à tout moment retirer ton accord, accéder à tes données, les corriger, les faire supprimer, t'opposer à leur usage, ou les récupérer. Écris à Marcus par message privé sur Instagram, ou réponds simplement « STOP » à un de ses emails. Tu peux aussi déposer une réclamation auprès de la CNIL (cnil.fr).</p>
+    <p><b>Tes droits.</b> Tu peux à tout moment retirer ton accord, accéder à tes données, les corriger, les faire supprimer, t'opposer à leur usage, ou les récupérer. Écris à Marcus à <a href="mailto:dupratmarcus79@gmail.com">dupratmarcus79@gmail.com</a> ou par message privé sur Instagram, ou réponds simplement « STOP » à un de ses emails. Tu peux aussi déposer une réclamation auprès de la CNIL (cnil.fr).</p>
     <p><b>Cookies.</b> Ce site ne dépose aucun cookie de suivi ni de publicité. Les polices d'écriture sont chargées depuis Google Fonts.</p>
   </details>
   <details><summary>Crédits photos</summary>
     <p>Photo d'ouverture : Marcus. Photos d'illustration, recadrées, via Wikimedia Commons : « Bassin la Paix » par Clémenceau Lauret (<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Bassin_la_Paix.jpg" target="_blank" rel="noopener">source</a>) ; « L'Ermitage beach, Réunion » par Samuel Hoarau (<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:L%27Ermitage_beach,_R%C3%A9union.jpg" target="_blank" rel="noopener">source</a>) ; « Negombo Beach resort pool » par Recal Media (domaine public CC0, <a href="https://commons.wikimedia.org/wiki/File:Negombo_Beach_resort_pool_(Unsplash).jpg" target="_blank" rel="noopener">source</a>).</p>
   </details>
   <details><summary>Mentions légales</summary>
-    <p>Éditeur et directeur de la publication : Marcus Duprat. Contact : par message privé sur Instagram. Hébergeur : GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+    <p>Éditeur et directeur de la publication : Marcus Duprat. Contact : <a href="mailto:dupratmarcus79@gmail.com">dupratmarcus79@gmail.com</a> ou message privé sur Instagram. Hébergeur : GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
     <p>Marcus est partenaire indépendant d'une société de voyage qui fonctionne en marketing de réseau. Il n'est pas salarié de cette société et ce site n'est pas le sien. Certains liens sont des liens de parrainage. Aucun revenu n'est garanti.</p>
   </details>
   <p style="margin-top:22px">© 2026 Voyage by Marcus</p>
@@ -336,7 +353,7 @@ const tabs=document.querySelectorAll(".tabs button");
 function montre(p,garde){
   document.getElementById("p-voyage").hidden=p!=="voyage";
   document.getElementById("p-invest").hidden=p!=="invest";
-  tabs.forEach(b=>b.setAttribute("aria-pressed",b.dataset.p===p));
+  tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.p===p));
   if(!garde)window.scrollTo(0,0);
 }
 tabs.forEach(b=>b.addEventListener("click",()=>{
@@ -368,13 +385,7 @@ f.addEventListener("submit", async e => {
     : !d.majeur ? "Il faut avoir 18 ans ou plus."
     : !d.accord ? "Coche la case d'accord pour que je puisse te recontacter." : "";
   err.hidden = !msg; err.textContent = msg;
-  f.querySelectorAll("[aria-invalid]").forEach(x => x.removeAttribute("aria-invalid"));
-  if (msg) {
-    const champ = f.elements[!d.prenom.trim() ? "prenom" : !f.elements.email.validity.valid ? "email" : !d.majeur ? "majeur" : "accord"];
-    champ.setAttribute("aria-invalid", "true"); champ.setAttribute("aria-describedby", "err");
-    champ.focus({preventScroll: true}); champ.scrollIntoView({block: "center"});
-    return;
-  }
+  if (msg) return;
   const b = f.querySelector("button"); b.disabled = true; b.textContent = "Envoi…";
   try {
     if (ENVOI) {
